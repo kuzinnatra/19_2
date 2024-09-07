@@ -6,7 +6,7 @@ class Category(models.Model):
     """создаем модель категории"""
 
     name = models.CharField(
-        max_lenght=50,
+        max_length=50,
         verbose_name="Наименование категории",
         help_text="введите наименование категории",
     )
@@ -25,7 +25,7 @@ class Product(models.Model):
     """создаем модель продукты(товары)"""
 
     name = models.CharField(
-        max_lenght=50,
+        max_length=50,
         verbose_name="Наименование товара",
         help_text="введите наименование товара",
     )
