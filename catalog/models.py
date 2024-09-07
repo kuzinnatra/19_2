@@ -2,6 +2,7 @@ from django.db import models
 
 NULLABLE = {"blank": True, "null": True}
 
+
 class Category(models.Model):
     """создаем модель категории"""
 
@@ -20,6 +21,7 @@ class Category(models.Model):
 
     def __str__(self):
         return f"{self.name}"
+
 
 class Product(models.Model):
     """создаем модель продукты(товары)"""
@@ -44,7 +46,7 @@ class Product(models.Model):
         verbose_name="Категория",
         help_text="выберите категорию товара",
         **NULLABLE,
-        related_name='products',
+        related_name="products",
     )
     price = models.IntegerField(
         verbose_name="Цена за покупку", help_text="введите цену покупки (целое число)"
@@ -55,6 +57,11 @@ class Product(models.Model):
     updated_at = models.DateField(
         verbose_name="Дата последнего изменения",
         help_text="Дата последнего изменения (записи в БД)",
+    )
+    manufactured_at = models.DateField(
+        verbose_name="Дата производства продукта",
+        help_text="Дата производства продукта",
+        **NULLABLE,
     )
 
     class Meta:
@@ -67,6 +74,3 @@ class Product(models.Model):
 
     def __str__(self):
         return f"{self.name}"
-
-
-
